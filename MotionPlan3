@@ -1,0 +1,55 @@
+import numpy as np
+import matplotlib.pyplot as plt
+def plan_path(start_location, end_location):
+    number_steps_lift = 20
+    number_steps_curve = 80
+    number_steps_drop = 20
+    lowering_height = 0.09
+    lifting_height = 0.18
+    drop_height = 0.005
+
+    drop_point = [end_location[0], end_location[1], end_location[2] + lowering_height+ drop_height, end_location[3]]
+
+    path = np.zeros(((number_steps_curve + number_steps_drop + number_steps_lift), 4))
+
+    path[0, 0] = start_location[0]
+    path[0, 1] = start_location[1]
+    path[0, 2] = start_location[2]
+    path[0, 3] = start_location[3]
+
+    diff_x = drop_point[0] - start_location[0]
+    diff_y = drop_point[1] - start_location[1]
+    diff_z = drop_point[2] - start_location[2]
+    diff_theta = drop_point[3] - start_location[3]
+
+    for i in range(1,number_steps_lift):
+        path[i, 0] = path[i-1, 0]
+        path[i, 1] = path[i-1, 1]
+        path[i, 2] = path[i-1, 2] + (lifting_height/number_steps_lift)
+        path[i, 3] = path[i-1, 3]
+
+    for i in range(number_steps_lift-1, number_steps_curve + number_steps_lift):
+        path[i, 0] = path[i-1, 0] + diff_x/(number_steps_curve-1)
+        path[i, 1] = path[i-1, 1] + diff_y/(number_steps_curve-1)
+        offset = path[number_steps_lift-1,2]-path[number_steps_lift-2, 2]
+        path[i, 2] = (((i**(1./3)) / ((number_steps_curve-1)**(1./3))) * diff_z)-offset
+        path[i, 3] = path[i-1, 3] + float(diff_theta)/(number_steps_curve-1)  #diff_theta needs to be turned into a float so it can be divided
+    path[number_steps_lift-1,2] = ((path[number_steps_lift-2,2]+path[number_steps_lift,2])/2)
+
+    for i in range(number_steps_curve+number_steps_lift, number_steps_curve + number_steps_lift+ number_steps_drop):
+        path[i, 0] = path[number_steps_curve+number_steps_lift-1, 0]
+        path[i, 1] = path[number_steps_curve+number_steps_lift-1, 1]
+        path[i, 2] = path[i-1, 2] - (lowering_height / number_steps_drop)
+        path[i, 3] = path[number_steps_curve+number_steps_lift-1, 3]
+
+    return path
+
+test = plan_path([0, 0, 0, 0], [0.5, 0.31, 0.145, 0.3])
+print(test)
+
+x = np.arange(20 + number_steps_curve + number_steps_drop)
+plt.plot(x, test[:, 0])
+plt.plot(x, test[:, 1])
+plt.plot(x, test[:, 2])
+plt.plot(x, test[:, 3])
+plt.show()
