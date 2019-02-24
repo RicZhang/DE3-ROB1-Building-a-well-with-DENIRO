@@ -14,25 +14,28 @@ DENIRO is a Baxter robot which belongs to the Design Engineering department at I
 - Pilar Zhang Qiu
 
 ## Contents
-### 1. Working with DENIRO
+### 01 Working with DENIRO
+
 **Milestone 01 - Setting up DENIRO & Worsktation**
 - [x] Task 1
 - [ ] Task 2
 - [ ] Task 3
+
 **Milestone 02 - Pick and Place**
 - [x] Task 1
 - [ ] Task 2
 - [ ] Task 3
+
 **Milestone 03 - Editing the Code Scripts**
 - [x] Task 1
 - [ ] Task 2
 - [ ] Task 3
 
 
-### 2. Project Specifications and Requirements
+### 02 Project Specifications and Requirements
 
-### 3. Trials and Errors
-### 4. Project Management
+### 03 Trials and Errors
+### 04 Project Management
 
 ## Useful Resources
 
