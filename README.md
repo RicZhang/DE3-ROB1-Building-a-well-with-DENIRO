@@ -16,20 +16,20 @@ DENIRO is a Baxter robot which belongs to the Design Engineering department at I
 ## Contents
 ### 01 Working with DENIRO
 
-**Milestone 01 - Setting up DENIRO & Worsktation**
-- [x] Task 1
-- [ ] Task 2
-- [ ] Task 3
+> **Milestone 01 - Setting up DENIRO & Worsktation**
+> - [x] Task 1
+> - [ ] Task 2
+> - [ ] Task 3
 
-**Milestone 02 - Pick and Place**
-- [x] Task 1
-- [ ] Task 2
-- [ ] Task 3
+> **Milestone 02 - Pick and Place**
+> - [x] Task 1
+> - [ ] Task 2
+> - [ ] Task 3
 
-**Milestone 03 - Editing the Code Scripts**
-- [x] Task 1
-- [ ] Task 2
-- [ ] Task 3
+> **Milestone 03 - Editing the Code Scripts**
+> - [x] Task 1
+> - [ ] Task 2
+> - [ ] Task 3
 
 
 ### 02 Project Specifications and Requirements
